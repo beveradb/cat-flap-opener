@@ -12,10 +12,11 @@ It holds the flap open while he makes up his mind and for 20 s after he's gone, 
 
 ## Docs
 
+- **[Build guide](docs/guide/build-guide.md)** ([printable PDF](docs/guide/build-guide.pdf)): shopping list, diagrams and step-by-step build
 - [Design spec](docs/superpowers/specs/2026-09-28-cat-flap-opener-design.md): the full design, behaviour, safety, firmware structure and parts
 - [Future: cameras](docs/future-cameras.md): notes for a later build adding live-stream and Frigate cameras on both sides
 - [Initial prompt](docs/initial-prompt.md): the original request that started the project
 
 ## Status
 
-Design approved. Next steps: buy the parts, build the firmware, bench test, then install.
+Design approved and the build guide is written. Next steps: review the guide, buy the parts, write the firmware, bench test, then install.

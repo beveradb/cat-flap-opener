@@ -26,8 +26,8 @@ He also struggles coming back in, though less.
 |---|---|---|
 | Detection | **Presence sensing, not vision** | The only question is whether something is on a shelf. Occasional false triggers (a hand, a bag) are harmless: the flap just opens. No model, no lighting issues, no video. |
 | Sensor | **VL53L1X time-of-flight distance sensor** above each shelf | Precise, small detection zone, works in the dark, about 1 cm square, ignores people walking past. It also works when he stays still, unlike PIR sensors. |
-| Controller | **Seeed XIAO ESP32-S3** (plain, no camera) | Thumb-sized, cheap, two I²C buses, spare headroom and pins for future options. |
-| Actuator | **28BYJ-48 5V geared stepper** plus a ULN2003 driver, winding a cord on a small spool | Moves to an exact position every time, so there's no timing to tune. It's deliberately low-torque (can't hurt a paw). The gearbox holds position without power. |
+| Controller | **Adafruit QT Py ESP32-S3** (8 MB flash, no PSRAM; PID 5426) | Thumb-sized and cheap, with two I²C buses. The built-in STEMMA QT socket means the inside sensor plugs in with no soldering; it also has a built-in NeoPixel for status. (It replaced the XIAO ESP32-S3 during purchasing.) |
+| Actuator | **28BYJ-48 5V geared stepper** plus a ULN2003 driver, winding the cord on a **GT2 40-tooth pulley** (5 mm bore) used as a flanged spool; a 20-tooth pulley is the fallback if more torque is needed | Moves to an exact position every time, so there's no timing to tune. It's deliberately low-torque (can't hurt a paw). The gearbox holds position without power. |
 | Linkage | **Short braided cord** (about 1 mm, dark), spool to an eyelet on the flap's bottom edge | Pulling the flap's bottom edge up and into the room opens it for both directions. Braided cord replaces monofilament, which is a cat hazard. |
 | Power | **5V USB** from a wall plug; one cable down the wall | A sensor-only design could run on battery, but USB means zero maintenance and leaves room for the future cameras. |
 | Home Assistant/Frigate | **Not required** | Must work fully standalone. MQTT reporting is an optional future add-on and must never be needed for opening. |
@@ -61,19 +61,19 @@ Rejected alternatives:
 ```
 
 **Inside, on the window frame (the only visible tech):**
-- A matchbox-sized box containing the XIAO ESP32-S3, the ULN2003 driver and a push button.
+- A small box (80×50×26 mm) containing the QT Py ESP32-S3, the ULN2003 driver and a push button.
 - The stepper with its spool.
-- The inside VL53L1X, aimed down at the inside shelf.
+- The inside VL53L1X, mounted **10–15 cm to the side of the flap** (not above its swing path), aimed at the shelf area in front of the flap. If it could see the flap or cord while open, it would hold the flap open.
 
 **Outside (catio):**
-- The second VL53L1X in a small sealed enclosure with a clear window, placed as sheltered as possible, aimed at the catio shelf.
+- The second VL53L1X in a small IP65 box mounted with its **lid facing down**. The sensor looks through a ~10 mm hole in the lid, so there's no cover in front of it to cause false readings, and rain can't fall into a downward-facing hole.
 - It connects to the controller through about 1 m of 4-core cable (3V3, GND, SDA, SCL).
 - **Stretch option to try during install:** mount the outside sensor *indoors*, looking out through the acrylic. This removes all outdoor electronics. It needs a clear view of the catio shelf and the sensor's crosstalk calibration for the cover. Use it only if it works reliably.
 
 **Why the controller is at the window:** putting it at the wall socket would mean running about 12 conductors (4 motor wires plus 2 × 4 sensor wires) down the wall, with I²C over roughly 2 m. Keeping it at the window turns all of that into one USB cable.
 
 **Sensor wiring:** both VL53L1X sensors have the same default I²C address (0x29).
-Put each sensor on its own I²C bus; the ESP32-S3 has two.
+Put each sensor on its own I²C bus: the inside sensor on the STEMMA QT socket (`Wire1`), the outside sensor on the SDA/SCL pads (`Wire`).
 (Fallback: use XSHUT to reassign addresses at boot.)
 The outside sensor's roughly 1 m cable runs at 100 kHz.
 
@@ -87,11 +87,11 @@ The controller runs a state machine, polling both sensors at about 10 Hz.
 1. **Idle (closed):** the cord is slack and the motor coils are de-energised.
 2. **Trigger:** a sensor is **triggered** when it reads closer than its calibrated empty-shelf distance minus a margin (starting at 50 mm; tunable).
    Opening requires a trigger on either sensor for **about 300 ms continuously**. This debounce filters out rain and brief passes.
-3. **Opening:** the motor winds the cord to the calibrated **open position** over about 2 s.
+3. **Opening:** the motor winds the cord to the calibrated **open position**. The 28BYJ-48 tops out at about 15 rpm, so with the 40-tooth pulley this takes about 4–6 s. The gap is big enough to sniff through almost immediately.
 4. **Open / hold:** the flap stays open while either sensor is triggered, **plus 20 s after both are clear**.
    He's between the sensors (in the tunnel) while passing through, and he's often slow, so this generous grace period is the main safety rule.
    The outside is a gated catio, so a long hold carries no intruder risk.
-5. **Closing:** the motor unwinds slowly (about 3 s) back to slack, so the flap lowers under its own weight.
+5. **Closing:** the motor unwinds slowly (about 6 s) back to slack, so the flap lowers under its own weight.
    **If either sensor triggers during closing, it reverses immediately to Opening.**
 6. **Max hold:** if the flap has been open continuously for **2 minutes**, it closes.
    The sensor that's still triggered is then **latched out**: it's ignored until its reading goes back to "clear".
@@ -105,6 +105,7 @@ All the timings (debounce, grace, max hold, cooldown, margin) are named constant
 The controller box has a single button:
 - **Long press (3 s), with both shelves empty:** takes several readings from each sensor and stores the empty-shelf distance for each in flash.
 - **Short press:** runs one manual open, hold, close cycle, for testing.
+- **Serial console** for setup: jog the motor in/out, `save` the open position, re-set `home`, `reverse` the direction, and `auto on/off`.
 - **Open position:** set as a step count in config and tuned on the window.
   Later option: a set-open-position mode using the button.
 
@@ -128,7 +129,7 @@ Because the cord is slack when closed, a small homing error only changes the amo
 
 ## 7. Firmware structure
 
-The firmware is a PlatformIO project (Arduino framework) for the XIAO ESP32-S3.
+The firmware is a PlatformIO project (Arduino framework) for the Adafruit QT Py ESP32-S3.
 
 | Module | Responsibility | Depends on |
 |---|---|---|
@@ -161,21 +162,20 @@ WiFi and MQTT are **out of scope** for v1. Adding them later should only mean ad
 
 ## 9. Parts (USD, approximate)
 
-The specific products and vendors are chosen during purchasing and recorded in [`docs/bom.md`](../../bom.md).
+The chosen products, ASINs and Adafruit PIDs are in the [build guide](../../guide/build-guide.md#4-shopping-list).
 
-| Part | Qty | ~USD |
+| Part | Qty | USD |
 |---|---|---|
-| Seeed XIAO ESP32-S3 (plain) | 1 | $8 |
-| 28BYJ-48 5V stepper + ULN2003 driver board | 1 (buy a 2-pack as a spare) | $6–10 |
-| VL53L1X breakout (Pololu / Adafruit / SparkFun) | 2 | $30 |
-| Small project enclosure + momentary push button | 1 | $8 |
-| Small weatherproof enclosure with a clear lid (or a clear acrylic window) + cable gland | 1 | $8 |
-| Thin 4-core cable (about 1–2 m); USB-C cable (about 3 m) | 1 each | $12 |
-| Braided cord (about 1 mm, dark), small spool/pulley or 3D-printed spool, adhesive or screw eyelet | 1 | $8 |
-| 5V ≥2A USB power supply | 1 | $8 (or reuse one) |
-| Hookup wire, header pins, heat-shrink, cable clips | — | $10 (if not already owned) |
+| Adafruit QT Py ESP32-S3 (one bench/spare, one final) | 2 | $25.00 |
+| Adafruit VL53L1X STEMMA QT (inside, outside, spare) | 3 | $44.85 |
+| STEMMA QT cables (400 mm ×2, 200 mm ×2, to-male-header ×2) | 6 | $7.40 |
+| ELEGOO 28BYJ-48 + ULN2003 (5-pack) | 1 | $14.99 |
+| GT2 pulleys, 20T + 40T, 5 mm bore | 1 set | $11.89 |
+| 1 mm braided nylon cord, controller box (80×50×26) 5-pack, IP65 box with glands, 4-core cable, VHB tape | — | $43.05 |
+| Electronics starter kit (breadboard kit, jumpers, wire, heat-shrink, stripper, helping hands) | — | $57.73 |
 
-**Estimated total: about $80–100.**
+**Total: about $205 plus Adafruit shipping.** The build itself is about $147, and the starter kit is reusable.
+Power supply, USB-C cable, multimeter, soldering kit, drill bits and cable clips are already owned.
 
 ## 10. Measurements needed before install
 

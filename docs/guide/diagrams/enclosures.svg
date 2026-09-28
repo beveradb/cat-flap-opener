@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="Helvetica, Arial, sans-serif" font-size="13">
+  <rect width="1000" height="520" fill="#fff"/>
+  <text x="250" y="28" text-anchor="middle" font-size="17" font-weight="bold">A. Controller box — top view, lid off</text>
+  <text x="250" y="46" text-anchor="middle" font-size="12" fill="#666">Zulkit 80 × 50 × 26 mm (drawn ~5 px per mm)</text>
+  <text x="760" y="28" text-anchor="middle" font-size="17" font-weight="bold">B. Outside sensor box — side section</text>
+  <text x="760" y="46" text-anchor="middle" font-size="12" fill="#666">68 × 58 × 33 mm IP65 box, clear lid facing DOWN</text>
+
+  <!-- ===== A: controller box ===== -->
+  <g transform="translate(50,80)">
+    <rect x="0" y="0" width="400" height="250" rx="12" fill="#3a3a3a"/>
+    <rect x="10" y="10" width="380" height="230" rx="8" fill="#f4f4f4"/>
+    <!-- ULN2003 -->
+    <rect x="22" y="40" width="175" height="155" rx="6" fill="#2e8b57" stroke="#1d5c39" stroke-width="2"/>
+    <text x="100" y="115" text-anchor="middle" fill="#fff" font-weight="bold">ULN2003</text>
+    <rect x="30" y="170" width="80" height="18" fill="#fff" stroke="#333"/>
+    <text x="70" y="184" text-anchor="middle" font-size="10">motor plug</text>
+    <g fill="#ddd" stroke="#555"><rect x="180" y="60" width="10" height="10"/><rect x="180" y="80" width="10" height="10"/><rect x="180" y="100" width="10" height="10"/><rect x="180" y="120" width="10" height="10"/></g>
+    <text x="175" y="150" text-anchor="end" fill="#fff" font-size="10">IN1–4</text>
+    <!-- QT Py, USB to right wall -->
+    <rect x="258" y="70" width="110" height="90" rx="8" fill="#6b3fa0" stroke="#3f2066" stroke-width="2"/>
+    <rect x="360" y="100" width="24" height="30" rx="4" fill="#c0c0c0" stroke="#666"/>
+    <text x="310" y="112" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">QT Py</text>
+    <text x="310" y="128" text-anchor="middle" fill="#fff" font-size="11">ESP32-S3</text>
+    <!-- wires between -->
+    <g stroke-width="2.5" fill="none">
+      <path d="M190,65 C 225,65 230,82 258,82" stroke="#e67e22"/>
+      <path d="M190,85 C 225,85 230,94 258,94" stroke="#e84393"/>
+      <path d="M190,105 C 225,105 230,106 258,106" stroke="#f1c40f"/>
+      <path d="M190,125 C 225,125 230,118 258,118" stroke="#3498db"/>
+    </g>
+    <!-- holes -->
+    <rect x="392" y="102" width="12" height="26" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+    <rect x="-4" y="160" width="12" height="30" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+    <circle cx="270" cy="246" r="7" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+    <circle cx="330" cy="246" r="7" fill="#fff" stroke="#c0392b" stroke-width="2"/>
+    <!-- button on lid (dashed) -->
+    <circle cx="230" cy="200" r="14" fill="none" stroke="#16a085" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <text x="230" y="229" text-anchor="middle" font-size="10" fill="#16a085">button (in lid)</text>
+  </g>
+  <g font-size="12" fill="#222">
+    <g font-size="16" font-weight="bold" fill="#c0392b">
+      <text x="464" y="200">①</text><text x="22" y="262">②</text><text x="400" y="342">③</text><text x="296" y="284">④</text>
+    </g>
+    <text x="400" y="360">① USB-C slot (right end)</text>
+    <text x="30" y="360">② Motor cable slot (left end) — feed</text>
+    <text x="30" y="376">    the plug through before closing</text>
+    <text x="30" y="398">③ Two 7 mm holes in the bottom edge:</text>
+    <text x="30" y="414">    inside-sensor STEMMA cable + outside 4-core cable</text>
+    <text x="30" y="436">④ Tactile button pokes through a 6 mm hole in the lid;</text>
+    <text x="30" y="452">    hot-glue it in place</text>
+    <text x="30" y="474">Solder wires straight onto the driver's IN1–4 and +/− pins, then snip the</text>
+    <text x="30" y="490">pins short — plug-on jumper housings are too tall for a 26 mm box.</text>
+  </g>
+
+  <!-- ===== B: outside sensor box ===== -->
+  <g transform="translate(600,80)">
+    <!-- frame / wall it's stuck to -->
+    <rect x="0" y="0" width="40" height="300" fill="#c8a26b" stroke="#8a6a3a" stroke-width="2"/>
+    <text x="20" y="160" font-size="11" fill="#5a3f15" text-anchor="middle" transform="rotate(-90 20 160)">outside face of window frame</text>
+    <!-- VHB -->
+    <rect x="40" y="40" width="5" height="165" fill="#b03a2e"/>
+    <!-- box body -->
+    <rect x="45" y="40" width="165" height="150" rx="8" fill="#e9e9e9" stroke="#777" stroke-width="3"/>
+    <!-- clear lid at bottom -->
+    <rect x="45" y="190" width="165" height="16" fill="#d8eef8" stroke="#7fb3d1" stroke-width="2"/>
+    <!-- hole in lid -->
+    <rect x="115" y="190" width="26" height="16" fill="#fff"/>
+    <!-- sensor board glued to inside of lid -->
+    <rect x="85" y="172" width="86" height="18" rx="3" fill="#1f5fa8"/>
+    <rect x="121" y="186" width="14" height="6" fill="#111"/>
+    <!-- beam -->
+    <polygon points="121,206 135,206 200,320 56,320" fill="#7a3fb0" opacity="0.15"/>
+    <text x="128" y="312" text-anchor="middle" font-size="12" fill="#5a2d88">looks down at catio shelf</text>
+    <!-- gland + cable with drip loop -->
+    <rect x="210" y="92" width="18" height="24" fill="#333"/>
+    <path d="M85,176 C 70,140 140,110 210,104" fill="none" stroke="#111" stroke-width="3"/>
+    <path d="M228,104 C 300,104 300,230 250,230 C 205,230 220,150 260,10" fill="none" stroke="#333" stroke-width="7"/>
+    <!-- rain -->
+    <g stroke="#7fb3d1" stroke-width="2"><line x1="120" y1="0" x2="114" y2="18"/><line x1="170" y1="10" x2="164" y2="28"/><line x1="300" y1="30" x2="294" y2="48"/></g>
+  </g>
+  <g font-size="12" fill="#222">
+    <text x="620" y="420">• Mount with the clear lid facing <tspan font-weight="bold">down</tspan> — rain falls onto the solid</text>
+    <text x="620" y="436">   back of the box, never into the hole.</text>
+    <text x="620" y="456">• Cut a ~10 mm hole in the lid right under the sensor, so it sees</text>
+    <text x="620" y="472">   out directly (plastic in front of the sensor can cause false readings).</text>
+    <text x="620" y="492">• Cable enters through the box's own gland, with a <tspan font-weight="bold">drip loop</tspan></text>
+    <text x="620" y="508">   so water runs off the low point instead of into the box.</text>
+  </g>
+</svg>

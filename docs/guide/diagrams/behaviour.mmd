@@ -1,0 +1,11 @@
+stateDiagram-v2
+    direction TB
+    [*] --> Closed
+    Closed --> Opening: a sensor sees something\nfor 0.3 s in a row
+    Opening --> Open: reached open position\n(~4–6 s)
+    Open --> Open: still seeing him\n(20 s timer restarts)
+    Open --> Closing: both sensors clear\nfor 20 s
+    Open --> Closing: open 2 min straight\n(stuck sensor ignored\nuntil it clears)
+    Closing --> Opening: sensor sees something\n→ reverse immediately
+    Closing --> Cooldown: fully closed,\ncord slack again
+    Cooldown --> Closed: after 3 s

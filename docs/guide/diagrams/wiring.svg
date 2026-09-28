@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <rect width="1000" height="720" fill="#fff"/>
+  <text x="500" y="30" text-anchor="middle" font-size="18" font-weight="bold">Wiring — everything connects to the QT Py ESP32-S3</text>
+
+  <!-- USB power -->
+  <rect x="455" y="48" width="110" height="40" rx="6" fill="#fafafa" stroke="#777" stroke-width="2"/>
+  <text x="510" y="66" text-anchor="middle" font-size="12">USB plug (5 V)</text>
+  <text x="510" y="81" text-anchor="middle" font-size="11" fill="#666">existing charger</text>
+  <line x1="510" y1="88" x2="510" y2="152" stroke="#999" stroke-width="5"/>
+  <text x="518" y="104" font-size="11" fill="#666">USB-C cable</text>
+
+  <!-- QT Py -->
+  <rect x="440" y="152" width="140" height="318" rx="10" fill="#6b3fa0" stroke="#3f2066" stroke-width="2"/>
+  <rect x="490" y="146" width="40" height="16" rx="4" fill="#c0c0c0" stroke="#666"/>
+  <text x="510" y="190" text-anchor="middle" fill="#fff" font-weight="bold" font-size="13">QT Py</text>
+  <text x="510" y="206" text-anchor="middle" fill="#fff" font-weight="bold" font-size="13">ESP32-S3</text>
+  <g font-size="12" fill="#fff" font-weight="bold">
+    <text x="452" y="242">A0</text><text x="452" y="278">A1</text><text x="452" y="314">A2</text><text x="452" y="350">A3</text>
+    <text x="452" y="386">SDA</text><text x="452" y="422">SCL</text><text x="452" y="458">TX</text>
+    <text x="568" y="242" text-anchor="end">5V</text><text x="568" y="278" text-anchor="end">GND</text><text x="568" y="314" text-anchor="end">3V</text>
+    <text x="568" y="350" text-anchor="end" fill="#b9a6d6">MO</text><text x="568" y="386" text-anchor="end" fill="#b9a6d6">MI</text><text x="568" y="422" text-anchor="end" fill="#b9a6d6">SCK</text><text x="568" y="458" text-anchor="end" fill="#b9a6d6">RX</text>
+  </g>
+  <g fill="#e8c14a" stroke="#8a6d10">
+    <circle cx="440" cy="238" r="5"/><circle cx="440" cy="274" r="5"/><circle cx="440" cy="310" r="5"/><circle cx="440" cy="346" r="5"/>
+    <circle cx="440" cy="382" r="5"/><circle cx="440" cy="418" r="5"/><circle cx="440" cy="454" r="5"/>
+    <circle cx="580" cy="238" r="5"/><circle cx="580" cy="274" r="5"/><circle cx="580" cy="310" r="5"/><circle cx="580" cy="346" r="5"/>
+    <circle cx="580" cy="382" r="5"/><circle cx="580" cy="418" r="5"/><circle cx="580" cy="454" r="5"/>
+  </g>
+  <!-- STEMMA QT port -->
+  <rect x="490" y="462" width="40" height="14" rx="2" fill="#f5f5f5" stroke="#333"/>
+  <text x="536" y="530" font-size="11" fill="#333">STEMMA QT port</text>
+
+  <!-- ULN2003 driver -->
+  <rect x="70" y="200" width="210" height="190" rx="6" fill="#2e8b57" stroke="#1d5c39" stroke-width="2"/>
+  <text x="130" y="290" text-anchor="middle" fill="#fff" font-weight="bold">ULN2003</text>
+  <text x="130" y="306" text-anchor="middle" fill="#fff" font-size="12">driver board</text>
+  <g font-size="12" fill="#fff" font-weight="bold" text-anchor="end">
+    <text x="268" y="242">IN1</text><text x="268" y="278">IN2</text><text x="268" y="314">IN3</text><text x="268" y="350">IN4</text>
+  </g>
+  <g fill="#ddd" stroke="#555">
+    <rect x="276" y="233" width="10" height="10"/><rect x="276" y="269" width="10" height="10"/><rect x="276" y="305" width="10" height="10"/><rect x="276" y="341" width="10" height="10"/>
+  </g>
+  <!-- ULN power pins on top edge -->
+  <rect x="165" y="192" width="10" height="10" fill="#ddd" stroke="#555"/>
+  <rect x="205" y="192" width="10" height="10" fill="#ddd" stroke="#555"/>
+  <text x="170" y="222" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">+</text>
+  <text x="210" y="222" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">−</text>
+  <!-- motor connector -->
+  <rect x="90" y="382" width="80" height="14" fill="#fff" stroke="#333"/>
+
+  <!-- IN wires -->
+  <g stroke-width="3" fill="none">
+    <line x1="286" y1="238" x2="440" y2="238" stroke="#e67e22"/>
+    <line x1="286" y1="274" x2="440" y2="274" stroke="#e84393"/>
+    <line x1="286" y1="310" x2="440" y2="310" stroke="#f1c40f"/>
+    <line x1="286" y1="346" x2="440" y2="346" stroke="#3498db"/>
+  </g>
+  <!-- 5V and GND to ULN -->
+  <path d="M580,238 H620 V132 H170 V192" fill="none" stroke="#d63031" stroke-width="3"/>
+  <path d="M580,274 H640 V118 H210 V192" fill="none" stroke="#222" stroke-width="3"/>
+  <text x="200" y="104" font-size="12" fill="#222">5V (red) and GND (black) to driver +/−</text>
+
+  <!-- Motor -->
+  <g stroke-width="2.5" fill="none">
+    <path d="M98,396 V470" stroke="#3498db"/><path d="M114,396 V470" stroke="#e84393"/>
+    <path d="M130,396 V470" stroke="#f1c40f"/><path d="M146,396 V470" stroke="#e67e22"/><path d="M162,396 V470" stroke="#d63031"/>
+  </g>
+  <circle cx="130" cy="530" r="62" fill="#3b6fb6" stroke="#244c85" stroke-width="3"/>
+  <rect x="58" y="520" width="20" height="20" fill="#3b6fb6" stroke="#244c85" stroke-width="2"/>
+  <rect x="182" y="520" width="20" height="20" fill="#3b6fb6" stroke="#244c85" stroke-width="2"/>
+  <circle cx="130" cy="510" r="9" fill="#ccc" stroke="#555" stroke-width="2"/>
+  <text x="130" y="552" text-anchor="middle" fill="#fff" font-weight="bold" font-size="13">28BYJ-48</text>
+  <text x="130" y="568" text-anchor="middle" fill="#fff" font-size="11">5V stepper</text>
+  <text x="130" y="620" text-anchor="middle" font-size="12">plugs straight in — 5-pin</text>
+  <text x="130" y="636" text-anchor="middle" font-size="12">connector only fits one way</text>
+
+  <!-- Button on TX -->
+  <path d="M440,454 H360 V560" fill="none" stroke="#16a085" stroke-width="3"/>
+  <circle cx="360" cy="566" r="5" fill="#fff" stroke="#333" stroke-width="2"/>
+  <circle cx="360" cy="614" r="5" fill="#fff" stroke="#333" stroke-width="2"/>
+  <line x1="345" y1="572" x2="345" y2="608" stroke="#333" stroke-width="3"/>
+  <line x1="345" y1="590" x2="332" y2="590" stroke="#333" stroke-width="3"/>
+  <line x1="360" y1="619" x2="360" y2="644" stroke="#222" stroke-width="3"/>
+  <line x1="346" y1="644" x2="374" y2="644" stroke="#222" stroke-width="3"/>
+  <line x1="351" y1="650" x2="369" y2="650" stroke="#222" stroke-width="3"/>
+  <line x1="356" y1="656" x2="364" y2="656" stroke="#222" stroke-width="3"/>
+  <text x="372" y="595" font-size="12">push button</text>
+  <text x="372" y="611" font-size="11" fill="#666">(from the ELEGOO kit)</text>
+  <text x="380" y="656" font-size="11" fill="#666">to any GND</text>
+
+  <!-- Inside sensor via STEMMA QT -->
+  <path d="M510,476 V540 H640 V560" fill="none" stroke="#111" stroke-width="5"/>
+  <text x="652" y="555" font-size="12">400 mm STEMMA QT cable</text>
+  <rect x="580" y="560" width="130" height="90" rx="8" fill="#1f5fa8" stroke="#0f3a6a" stroke-width="2"/>
+  <rect x="630" y="590" width="30" height="18" fill="#111"/>
+  <text x="645" y="628" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">VL53L1X #1</text>
+  <text x="645" y="643" text-anchor="middle" fill="#fff" font-size="11">INSIDE shelf</text>
+  <text x="645" y="672" text-anchor="middle" font-size="12">plug-in, no soldering</text>
+
+  <!-- Outside sensor on header pads SDA/SCL/3V/GND -->
+  <path d="M440,382 H400 V500 H740" fill="none" stroke="#2f7bd8" stroke-width="3"/>
+  <path d="M440,418 H414 V486 H740" fill="none" stroke="#f1c40f" stroke-width="3"/>
+  <path d="M580,310 H740" fill="none" stroke="#d63031" stroke-width="3"/>
+  <path d="M580,274 H660 V296 H740" fill="none" stroke="#222" stroke-width="3"/>
+  <!-- splice region + long cable -->
+  <rect x="740" y="270" width="16" height="250" rx="3" fill="#eee" stroke="#999"/>
+  <text x="748" y="536" text-anchor="middle" font-size="11" fill="#666">solder joints</text>
+  <path d="M756,380 H820" fill="none" stroke="#333" stroke-width="12" stroke-linecap="round"/>
+  <text x="788" y="366" text-anchor="middle" font-size="11">4-core</text>
+  <text x="788" y="404" text-anchor="middle" font-size="11">cable ~1 m</text>
+  <path d="M820,380 H850" fill="none" stroke="#333" stroke-width="12" stroke-dasharray="4 5"/>
+  <rect x="850" y="364" width="14" height="32" fill="#eee" stroke="#999"/>
+  <text x="857" y="358" text-anchor="middle" font-size="11" fill="#666">splice</text>
+  <path d="M864,380 H890" fill="none" stroke="#111" stroke-width="5"/>
+  <rect x="860" y="410" width="120" height="84" rx="8" fill="#1f5fa8" stroke="#0f3a6a" stroke-width="2"/>
+  <rect x="905" y="436" width="30" height="16" fill="#111"/>
+  <path d="M890,380 V410" fill="none" stroke="#111" stroke-width="5"/>
+  <text x="920" y="470" text-anchor="middle" fill="#fff" font-weight="bold" font-size="12">VL53L1X #2</text>
+  <text x="920" y="485" text-anchor="middle" fill="#fff" font-size="11">OUTSIDE shelf</text>
+  <text x="920" y="512" text-anchor="middle" font-size="11">via STEMMA QT →</text>
+  <text x="920" y="526" text-anchor="middle" font-size="11">male-header cable</text>
+
+  <g font-size="12">
+    <text x="660" y="176" font-weight="bold">Outside sensor wires</text>
+    <text x="660" y="194"><tspan fill="#d63031">■</tspan> 3V  → red</text>
+    <text x="780" y="194"><tspan fill="#222">■</tspan> GND → black</text>
+    <text x="660" y="211"><tspan fill="#2f7bd8">■</tspan> SDA → blue</text>
+    <text x="780" y="211"><tspan fill="#c9a000">■</tspan> SCL → yellow</text>
+  </g>
+
+  <!-- notes -->
+  <g font-size="12" fill="#444">
+    <text x="30" y="690">Driver inputs: A0→IN1, A1→IN2, A2→IN3, A3→IN4 (any wire colours — these are just for clarity). Status light = the QT Py's built-in NeoPixel (no wiring).</text>
+    <text x="30" y="708">Two I²C buses: inside sensor on the STEMMA QT port (Wire1), outside sensor on SDA/SCL pads (Wire) — so both can keep the same default address.</text>
+  </g>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" font-family="Helvetica, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker>
+    <marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+    <g id="frame">
+      <rect x="-40" y="-60" width="80" height="50" fill="#c8a26b" stroke="#8a6a3a" stroke-width="2"/>
+      <rect x="-5" y="-10" width="10" height="255" fill="#cfe8f5" stroke="#7fb3d1"/>
+      <rect x="-30" y="40" width="60" height="190" fill="none" stroke="#999" stroke-width="2"/>
+      <circle cx="0" cy="50" r="4" fill="#555"/>
+      <circle cx="-70" cy="-20" r="14" fill="#bfc5cc" stroke="#6b7580" stroke-width="2"/>
+      <circle cx="-70" cy="-20" r="3" fill="#6b7580"/>
+    </g>
+  </defs>
+  <rect width="1000" height="560" fill="#fff"/>
+  <text x="500" y="26" text-anchor="middle" font-size="18" font-weight="bold">How the cord opens the flap (side view — room on the left, catio on the right)</text>
+
+  <!-- Panel 1: closed -->
+  <g transform="translate(180,120)">
+    <use href="#frame"/>
+    <line x1="0" y1="50" x2="0" y2="218" stroke="#5a9cc4" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-80,-12 C -95,90 -40,180 -2,212" fill="none" stroke="#111" stroke-width="2"/>
+    <circle cx="-2" cy="212" r="3.5" fill="#111"/>
+    <!-- dims -->
+    <line x1="60" y1="-20" x2="60" y2="50" stroke="#555" marker-start="url(#d)" marker-end="url(#d)"/>
+    <text x="68" y="20" font-weight="bold">h</text>
+    <line x1="60" y1="50" x2="60" y2="212" stroke="#555" marker-start="url(#d)" marker-end="url(#d)"/>
+    <text x="68" y="135" font-weight="bold">L</text>
+    <line x1="-70" y1="-45" x2="0" y2="-45" stroke="#555" marker-start="url(#d)" marker-end="url(#d)" transform="translate(0,-25)"/>
+    <text x="-40" y="-76" font-weight="bold" text-anchor="middle">d</text>
+    <text x="-20" y="290" text-anchor="middle" font-weight="bold" font-size="15">① Closed (resting)</text>
+    <text x="-20" y="310" text-anchor="middle">Cord hangs with ~2 cm slack.</text>
+    <text x="-20" y="327" text-anchor="middle">Flap swings freely both ways,</text>
+    <text x="-20" y="344" text-anchor="middle">exactly like today.</text>
+  </g>
+
+  <!-- Panel 2: open -->
+  <g transform="translate(500,120)">
+    <use href="#frame"/>
+    <line x1="0" y1="50" x2="0" y2="218" stroke="#5a9cc4" stroke-width="3" stroke-dasharray="4 5" opacity="0.4"/>
+    <!-- flap swung inward 65 deg: tip = (-168 sin65, 168 cos65)+(0,50) = (-152, 121) -->
+    <line x1="0" y1="50" x2="-152" y2="121" stroke="#5a9cc4" stroke-width="6" stroke-linecap="round"/>
+    <line x1="-82" y1="-12" x2="-150" y2="117" stroke="#111" stroke-width="2"/>
+    <circle cx="-150" cy="117" r="3.5" fill="#111"/>
+    <path d="M-50,-40 A 22 22 0 1 0 -92,-40" fill="none" stroke="#c0392b" stroke-width="2.5" marker-end="url(#a)" transform="translate(0,20)"/>
+    <text x="-128" y="-40" fill="#c0392b" font-weight="bold">winds in</text>
+    <path d="M-14,160 A 110 110 0 0 1 -96,110" fill="none" stroke="#c0392b" stroke-width="2" marker-end="url(#a)"/>
+    <!-- cat walking under -->
+    <g transform="translate(-95,190)" opacity="0.95">
+      <ellipse cx="0" cy="22" rx="42" ry="17" fill="#f28c28"/>
+      <circle cx="48" cy="8" r="15" fill="#f28c28"/>
+      <polygon points="38,-2 42,-18 50,-4" fill="#f28c28"/><polygon points="52,-4 60,-16 62,4" fill="#f28c28"/>
+      <path d="M-40,20 C -60,14 -60,-6 -50,-12" fill="none" stroke="#f28c28" stroke-width="6" stroke-linecap="round"/>
+      <path d="M70,10 H95" stroke="#f28c28" stroke-width="2" marker-end="url(#a)"/>
+    </g>
+    <text x="-20" y="290" text-anchor="middle" font-weight="bold" font-size="15">② Open (motor winds cord)</text>
+    <text x="-20" y="310" text-anchor="middle">Bottom edge lifts up and into the room;</text>
+    <text x="-20" y="327" text-anchor="middle">he walks underneath — in or out.</text>
+    <text x="-20" y="344" text-anchor="middle">Gravity closes it when cord is let out.</text>
+  </g>
+
+  <!-- Panel 3: pushed outward manually -->
+  <g transform="translate(820,120)">
+    <use href="#frame"/>
+    <!-- flap swung outward 30deg: tip = (84, 145+50)=(84,195) approx L=168: (168 sin30, 168cos30)=(84,145) -->
+    <line x1="0" y1="50" x2="84" y2="195" stroke="#5a9cc4" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-80,-12 C -70,80 20,150 80,190" fill="none" stroke="#111" stroke-width="2"/>
+    <circle cx="80" cy="190" r="3.5" fill="#111"/>
+    <text x="-20" y="290" text-anchor="middle" font-weight="bold" font-size="15">③ He pushes it himself</text>
+    <text x="-20" y="310" text-anchor="middle">Pushing OUT makes the path</text>
+    <text x="-20" y="327" text-anchor="middle">slightly longer — the resting slack</text>
+    <text x="-20" y="344" text-anchor="middle">must cover this (check in Step 8).</text>
+  </g>
+
+  <g font-size="12" fill="#333">
+    <text x="30" y="500"><tspan font-weight="bold">Measure before install:</tspan>  h = pulley height above the flap hinge,  L = hinge to flap bottom edge,  d = how far the pulley sits into the room from the flap.</text>
+    <text x="30" y="520">d must be at least ~3 cm so the pull starts the flap swinging <tspan font-style="italic">into the room</tspan>. Add a wooden spacer block behind the motor if needed.</text>
+    <text x="30" y="540">Typical numbers (h≈8, L≈17, d≈4 cm): ≈ 8–10 cm of cord to wind in → about 1¼ turns of the 40-tooth pulley → roughly 4–6 s to fully open.</text>
+  </g>
+</svg>

@@ -27,7 +27,7 @@ He also struggles coming back in, though less.
 | Detection | **Presence sensing, not vision** | The only question is whether something is on a shelf. Occasional false triggers (a hand, a bag) are harmless: the flap just opens. No model, no lighting issues, no video. |
 | Sensor | **VL53L1X time-of-flight distance sensor** above each shelf | Precise, small detection zone, works in the dark, about 1 cm square, ignores people walking past. It also works when he stays still, unlike PIR sensors. |
 | Controller | **Adafruit QT Py ESP32-S3** (8 MB flash, no PSRAM; PID 5426) | Thumb-sized and cheap, with two I²C buses. The built-in STEMMA QT socket means the inside sensor plugs in with no soldering; it also has a built-in NeoPixel for status. (It replaced the XIAO ESP32-S3 during purchasing.) |
-| Actuator | **28BYJ-48 5V geared stepper** plus a ULN2003 driver, winding the cord on a **GT2 40-tooth pulley** (5 mm bore) used as a flanged spool; a 20-tooth pulley is the fallback if more torque is needed | Moves to an exact position every time, so there's no timing to tune. It's deliberately low-torque (can't hurt a paw). The gearbox holds position without power. |
+| Actuator | **28BYJ-48 5V geared stepper** plus a ULN2003 driver, winding the cord on a **GT2 60-tooth pulley** (5 mm bore) used as a flanged spool; 40- and 20-tooth pulleys are the fallbacks if more torque is needed | Moves to an exact position every time, so there's no timing to tune. It's deliberately low-torque (can't hurt a paw). The gearbox holds position without power. |
 | Linkage | **Short braided cord** (about 1 mm, dark), spool to an eyelet on the flap's bottom edge | Pulling the flap's bottom edge up and into the room opens it for both directions. Braided cord replaces monofilament, which is a cat hazard. |
 | Power | **5V USB** from a wall plug; one cable down the wall | A sensor-only design could run on battery, but USB means zero maintenance and leaves room for the future cameras. |
 | Home Assistant/Frigate | **Not required** | Must work fully standalone. MQTT reporting is an optional future add-on and must never be needed for opening. |
@@ -87,7 +87,7 @@ The controller runs a state machine, polling both sensors at about 10 Hz.
 1. **Idle (closed):** the cord is slack and the motor coils are de-energised.
 2. **Trigger:** a sensor is **triggered** when it reads closer than its calibrated empty-shelf distance minus a margin (starting at 50 mm; tunable).
    Opening requires a trigger on either sensor for **about 300 ms continuously**. This debounce filters out rain and brief passes.
-3. **Opening:** the motor winds the cord to the calibrated **open position**. The 28BYJ-48 tops out at about 15 rpm, so with the 40-tooth pulley this takes about 4–6 s. The gap is big enough to sniff through almost immediately.
+3. **Opening:** the motor winds the cord to the calibrated **open position**. The 28BYJ-48 tops out at about 15 rpm, so the ~15 cm of cord this window needs takes about 6–7 s with the 60-tooth pulley. The gap is big enough to sniff through almost immediately.
 4. **Open / hold:** the flap stays open while either sensor is triggered, **plus 20 s after both are clear**.
    He's between the sensors (in the tunnel) while passing through, and he's often slow, so this generous grace period is the main safety rule.
    The outside is a gated catio, so a long hold carries no intruder risk.
@@ -177,7 +177,17 @@ The chosen products, ASINs and Adafruit PIDs are in the [build guide](../../guid
 **Total: about $205 plus Adafruit shipping.** The build itself is about $147, and the starter kit is reusable.
 Power supply, USB-C cable, multimeter, soldering kit, drill bits and cable clips are already owned.
 
-## 10. Measurements needed before install
+## 10. Measurements (taken 2026-09-28)
+
+- Flap hinge to bottom edge (L): **13 cm**.
+- Cord path from the mount point (the face of the lower sash's bottom rail) to the flap's bottom edge: **28 cm closed → 13 cm open**, so about **15 cm of take-up** plus about 2 cm of resting slack.
+- The open flap sits about 11 cm below the rail and sticks out 4 cm past the housing.
+- The worst-case cord tension is about 40 g, because the cord pulls nearly vertically on the tip near full open.
+- There's a USB outlet directly beside the window.
+- The motor needs screws (the rail paint is flaky) and possibly a spacer, so the cord clears the housing lip by ≥ 3 cm.
+- The motor is on an operable sash, so unhook the cord before moving the sash.
+
+## 10a. Original measurement checklist
 
 - Flap width and height, and where it's hinged.
 - Vertical distance from the flap's bottom edge to the wooden frame above it (this determines cord length and spool size).

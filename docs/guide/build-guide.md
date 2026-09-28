@@ -29,7 +29,7 @@
 3. [Safety design](#3-safety-design)
 4. [Shopping list](#4-shopping-list)
 5. [Tools and things you already own](#5-tools-and-things-you-already-own)
-6. [Measure your window first](#6-measure-your-window-first)
+6. [Your window: measurements](#6-your-window-measurements)
 7. [Build steps](#7-build-steps), 12 stages from bench prototype to OMalley's first trip
 8. [Troubleshooting](#8-troubleshooting)
 9. [Maintenance](#9-maintenance)
@@ -66,7 +66,7 @@ In plain English:
 
 1. **Waiting.** It checks both shelves 10 times a second.
 2. **He hops up.** If either sensor sees something for **0.3 s in a row**, the flap starts opening. Rain drops and a hand swiping past are too brief to count.
-3. **Opening** takes about **4–6 s**. There's a gap to sniff through almost at once, and he can take his time.
+3. **Opening** takes about **6–7 s**. There's a gap to sniff through almost at once, and he can take his time.
 4. **Holding.** It stays open while he's on either shelf, **plus 20 seconds** after both shelves are clear. He's between the two sensors while he's in the tunnel, and he's sometimes slow, so the 20 s is deliberately generous.
 5. **Closing.** The cord is let out slowly (about 6 s) and the flap lowers under its own weight. **If either sensor sees him again while it's closing, it reverses and reopens straight away.**
 6. **Stuck-open protection.** If it has been open for **2 minutes straight** (a bag on the shelf, or OMalley napping there), it closes. It then ignores that sensor until it reads "empty" again.
@@ -125,14 +125,15 @@ Two orders. The carts are already built in the Playwright browser, but **nothing
 | <img class="part" src="images/parts/stemma-qt-cable.jpg"> | **STEMMA QT cable, 400 mm** (PID 5385) and **200 mm** (PID 4401) | 2 + 2 | $5.50 | Plug-in, solder-free cables from the QT Py to the inside sensor. Two lengths, so you can pick whichever suits the mounting spot. |
 | <img class="part" src="images/parts/stemma-qt-male-header.jpg"> | **STEMMA QT → male header cable, 150 mm**, PID 4209 | 2 | $1.90 | Plugs into the outside sensor. Its other end is spliced onto the long 4-core cable. Also handy for breadboarding. |
 
-### Order B: Amazon, $127.66
+### Order B: Amazon, $136.85
 
 **Build parts:**
 
 | | Item | ASIN | Price | Why |
 |---|---|---|---|---|
 | <img class="part" src="images/parts/stepper-uln2003.jpg"> | **ELEGOO 5× 28BYJ-48 stepper + ULN2003 driver** | B01CP18J4A | $14.99 | The motor and its driver board. You get five, so there are plenty of spares. |
-| <img class="part" src="images/parts/gt2-pulleys.jpg"> | **GT2 pulleys, 20T + 40T, 5 mm bore** (plus belts you won't need) | B09JWKLJW9 | $11.89 | The cord spool. **Start with the 40-tooth**; it opens about twice as fast. The 20-tooth gives more pulling force if the flap turns out to be stiff. |
+| <img class="part" src="images/parts/gt2-60t-pulley.jpg"> | **GT2 pulley, 60T, 5 mm bore**, 2-pack | B0FNDDCRM1 | $9.19 | **The main cord spool.** Your window needs about 15 cm of cord wound in, and the big 60-tooth pulley does that in about 1½ turns (6–7 s). |
+| <img class="part" src="images/parts/gt2-pulleys.jpg"> | **GT2 pulleys, 20T + 40T, 5 mm bore** (plus belts you won't need) | B09JWKLJW9 | $11.89 | Fallback spools. They're slower but pull harder, in case the 60-tooth struggles. |
 | <img class="part" src="images/parts/nylon-cord.jpg"> | **1 mm black braided nylon cord**, 100 yd | B0CNPST7D9 | $5.79 | The pull cord. It's strong and visible, and nothing like fishing line. |
 | <img class="part" src="images/parts/project-box.jpg"> | **Zulkit project boxes 80×50×26 mm**, 5-pack | B07Q14K8YT | $7.29 | The controller box, with spares for mistakes. |
 | <img class="part" src="images/parts/ip65-box.jpg"> | **IP65 box 68×58×33 mm, clear lid** (includes 2 cable glands) | B0CT5H9KPC | $4.99 | Weatherproof housing for the outside sensor |
@@ -150,7 +151,7 @@ Two orders. The carts are already built in the Playwright browser, but **nothing
 | <img class="part" src="images/parts/wire-stripper.jpg"> | **VCELINK automatic wire stripper** | B08G48R47N | $9.99 | Clean strips on 22 AWG wire |
 | <img class="part" src="images/parts/helping-hands.jpg"> | **NEIKO helping hands** with magnifier | B000P42O3C | $9.99 | Holds wires while you solder splices |
 
-**Total: about $205 + Adafruit shipping.** About $147 of that is the build itself; the rest is the reusable starter kit.
+**Total: about $214 + Adafruit shipping.** About $156 of that is the build itself; the rest is the reusable starter kit.
 
 
 
@@ -177,25 +178,43 @@ Found in your Amazon order history. **None of this is being bought again.**
 
 <div class="page-break"></div>
 
-## 6. Measure your window first
+## 6. Your window: measurements
 
-Do this **before you order**; it takes 10 minutes with the caliper and a tape measure. These numbers decide the pulley size, the cable lengths and where things mount.
+You took these on 2026-09-28. Photos are in `docs/guide/photos/`.
+
+<table>
+<tr>
+<td style="width:50%"><img src="photos/omalley-shelf-inside-straight.jpg" style="width:100%; height:170px; object-fit:cover;"><br><small><b>Inside.</b> The DIY insert sits under the raised lower sash. The flap is right of centre, above the big white shelf. There's a power outlet just right of the window.</small></td>
+<td style="width:50%"><img src="photos/omalley-shelf-outside-from-flap.jpg" style="width:100%; height:170px; object-fit:cover;"><br><small><b>Catio side.</b> The weathered shelf directly outside the flap, under the catio roof beams.</small></td>
+</tr>
+<tr>
+<td><img src="photos/flexible-tape-length-when-slack-with-flap-fully-closed-from-mount-point-28cm.jpg" style="width:100%; height:170px; object-fit:cover;"><br><small><b>Cord path, flap closed: 28 cm</b> from the sash rail to the flap's bottom edge</small></td>
+<td><img src="photos/flexible-tape-length-when-flap-fully-opened-from-mount-point-13cm.jpg" style="width:100%; height:170px; object-fit:cover;"><br><small><b>Cord path, flap fully open: 13 cm</b></small></td>
+</tr>
+<tr>
+<td><img src="photos/amount-bottom-of-flap-sticks-out-from-windowframe-when-open-4cm.jpg" style="width:100%; height:170px; object-fit:cover;"><br><small><b>Open flap sticks out 4 cm</b> past the housing</small></td>
+<td><img src="photos/open-flap-to-solid-wood-windowframe-distance-11cm-ish.jpg" style="width:100%; height:170px; object-fit:cover;"><br><small><b>Open flap sits ~11 cm</b> below the sash rail</small></td>
+</tr>
+</table>
+
+| Measurement | Value | What it means for the build |
+|---|---|---|
+| **L**: flap hinge → bottom edge | **13 cm** | A short, light flap, so little lifting force is needed |
+| Cord path from mount point, closed → open | **28 cm → 13 cm** | **About 15 cm of cord to wind in** (plus about 2 cm resting slack). That's more than I'd guessed, which is why the 60-tooth pulley is now the main spool. |
+| **h**: mount point above the hinge | **~15 cm** (28 − 13) | The motor goes on the face of the **lower sash's bottom rail** (the painted wood above the insert) |
+| Open flap below the rail | **~11 cm** | Plenty of room: the open flap never gets near the motor |
+| Open flap beyond the housing | **4 cm** | The inside sensor must sit well to the side of this swing zone |
+| USB power | Outlet right beside the window | A ~1 m cable run, so your existing 6 ft USB-C cable is plenty |
+
+**How much force?** With your geometry the cord pulls almost straight up on the flap tip when it's nearly open. That gives it good leverage, so the worst case is only about 40 g of pull. The 60-tooth pulley still has about 2× headroom at full speed, and the smaller pulleys have more.
+
+**Still to check on the day (Step 9):**
+
+- [ ] **Cord clearance.** The cord must hang **at least 3 cm in front of the SureFlap housing's front face**, so it never rubs on the housing's top lip as it winds. If the sash rail's face is roughly level with the housing front, put the motor on a small wood spacer block (a 1×2 offcut) to bring it forward.
+- [ ] **The sash.** The motor is on the lower sash, so **unhook the cord before ever raising or lowering that sash.**
+- [ ] **The paint** on the rail is peeling in places, so use **screws for the motor** (VHB on flaking paint isn't reliable). VHB is fine for the light sensor and box if you scrape to sound paint first.
 
 <img class="diagram" src="diagrams/mechanism.svg" alt="Mechanism geometry">
-
-| ☐ | Measure | Typical | Yours |
-|---|---|---|---|
-| ☐ | **L**: flap hinge to the flap's bottom edge | 15–18 cm | |
-| ☐ | **h**: how far above the hinge the pulley can sit (the underside of the wooden frame) | 5–10 cm | |
-| ☐ | **d**: how far into the room the pulley will sit, measured from the flap's surface. **Needs to be ≥ 3 cm**; use a spacer block if the frame is flush with the acrylic. | 3–5 cm | |
-| ☐ | Inside: frame → inside shelf surface (vertical) | 30–50 cm | |
-| ☐ | Outside: frame → catio shelf surface (vertical) | 30–50 cm | |
-| ☐ | Where will the controller box sit, and how far is it from a USB plug along the wall? (≤ 6 ft means you can use your existing Anker cable) | | |
-| ☐ | Is there space **beside** the flap (10–15 cm left or right) on the frame for the inside sensor? | | |
-| ☐ | Can you drill a ~7 mm hole in the acrylic near the top corner for the outside cable, or is there an existing gap? | | |
-| ☐ | Photos of both sides, for the repo | | |
-
-**How much cord gets wound in?** Roughly `√(d² + (h+L)²) − √((d − L·sin θ)² + (h + L·cos θ)²)` plus about 2 cm of slack, where θ is how far open you want the flap (60–75° is plenty). You don't need to calculate it: the firmware lets you jog the motor and save "open" by eye (Step 11). The formula just confirms the 40-tooth pulley needs only about 1–1½ turns.
 
 <div class="page-break"></div>
 
@@ -266,7 +285,7 @@ This is the wiring for **both** the bench prototype and the final box. On the be
 
 ### Step 4: Pulley and cord (15 min)
 
-- [ ] Slide the **40-tooth pulley** onto the motor shaft, flange side outward, as close to the motor body as it will go without rubbing.
+- [ ] Slide the **60-tooth pulley** onto the motor shaft, flange side outward, as close to the motor body as it will go without rubbing.
 - [ ] Turn the shaft until one of the pulley's grub screws faces a **flat** on the shaft, then tighten it firmly with an iFixit hex bit. Tighten the second grub screw too.
 - [ ] Cut about **60 cm of cord**. Tie one end around the pulley hub, between the flanges, with a **clove hitch** pulled tight. Put a drop of super glue gel on the knot.
 - [ ] Wind 2 turns on by hand, neatly, between the flanges. That leaves spare cord on the spool in case you need to re-tie later.
@@ -281,7 +300,7 @@ This is the wiring for **both** the bench prototype and the final box. On the be
 ### Step 5: Prepare the flap (15 min)
 
 - [ ] If the flap will lift out (SureFlap flaps usually unclip at the hinge pins), take it out. Otherwise, hold a block of wood behind it while you drill.
-- [ ] Mark a point **centred left-to-right, 5 mm up from the bottom edge.**
+- [ ] Mark a point **5 mm up from the bottom edge, about 1 cm to one side of the small clear clip** at the centre of the SureFlap's bottom edge. Keep clear of the brush seal along the edge.
 - [ ] Drill a **1/16" (1.5 mm)** hole: slow speed, light pressure, with a scrap of tape over the spot to stop the bit wandering.
 - [ ] Thread the cord through **from the room side** and tie a **figure-eight stopper knot** on the catio side. Pulling from the room then pulls the knot against the flap. Put a drop of super glue on the knot. (Leave the cord long for now; it's trimmed in Step 10.)
 
@@ -344,10 +363,11 @@ Now repeat the bench wiring on the **final** QT Py, soldered this time, so it fi
 
 ### Step 9: Mount on the window (45 min)
 
-- [ ] **Motor:** mount it on the inside face of the wooden frame, above the flap and at least **3 cm into the room** from the flap (distance **d**). Add a wood spacer block if needed. Fix the two mounting tabs with small wood screws, with the **shaft pointing into the room**, so the pulley turns in a plane parallel to the window and the cord drops straight down from it.
-- [ ] **Inside sensor:** stick it with VHB to the frame **10–15 cm to one side of the flap**, angled so it looks at the part of the shelf where he sits in front of the flap. **It must not see the flap or cord** as the flap swings up (see Step 11's check). Plug in its STEMMA cable.
+- [ ] **Motor:** mount it on the face of the **lower sash's bottom rail**, directly above the flap, with the cord hanging **at least 3 cm in front of the flap housing** (use a wood spacer block if needed; see §6). Fix the two mounting tabs with small wood screws, with the **shaft pointing into the room**, so the pulley turns in a plane parallel to the window and the cord drops straight down from it.
+- [ ] **Inside sensor:** stick it with VHB to the sash rail **about 15 cm left of the flap**, angled so it looks at the part of the shelf where he sits in front of the flap. **It must not see the flap or cord** as the flap swings up (see Step 11's check). Plug in its STEMMA cable.
 - [ ] **Controller box:** VHB it to the frame beside the motor.
-- [ ] **USB cable:** route it along the frame and down the wall with the Bates clips, into your USB plug.
+- [ ] **Outside box:** VHB it to the **outside face of the acrylic, beside the flap** (on the same side as the cable hole), lid facing down and aimed at the catio shelf just in front of the flap.
+- [ ] **USB cable:** route it along the rail and down the window trim with the Bates clips, to a USB plug in the outlet just right of the window.
 
 ### Step 10: Connect the cord (10 min)
 
@@ -365,7 +385,7 @@ Now repeat the bench wiring on the **final** QT Py, soldered this time, so it fi
 - [ ] **Short-press the button** a few times and watch full cycles. Check that:
   - the cord winds evenly between the pulley flanges
   - the flap closes fully and the cord goes slack again
-  - opening takes about 4–6 s (swap to the 20-tooth pulley only if the motor struggles or skips)
+  - opening takes about 6–7 s (swap to the 40-tooth pulley, then the 20-tooth, only if the motor struggles or skips)
 - [ ] **Critical check:** while the flap is open, the Serial Monitor's `in=` reading must **not** change as the flap moves. If it does, the inside sensor can see the flap, so re-aim it further to the side.
 - [ ] **Outside:** sit something cat-sized (a cushion or a bag of rice) on the catio shelf and confirm it opens. Try it again on a rainy day.
 
@@ -394,7 +414,7 @@ Now repeat the bench wiring on the **final** QT Py, soldered this time, so it fi
 | It stays open far too long | A sensor can see the flap or cord (inside), or a plant or leaf (outside) | Re-aim the sensor; check its `in=`/`out=` reading while the flap is open |
 | It opens in heavy rain | The outside box is too exposed | Lengthen the 0.3 s trigger to 0.5 s, or move the box further under the roof |
 | Red flashing LED | A sensor isn't responding | Reseat the STEMMA plug; check the outside cable's continuity (Step 7 check) |
-| The motor skips or stalls near "fully open" | The cord pulls almost along the flap's surface, so there's too little leverage | Reduce the open position a little, increase **d**, or switch to the 20-tooth pulley |
+| The motor skips or stalls near "fully open" | The cord pulls almost along the flap's surface, so there's too little leverage | Reduce the open position a little, increase **d**, or switch to the 40-tooth (or 20-tooth) pulley |
 | The flap doesn't close fully | The cord is still slightly taut at "home" | Let out a few hundred steps and re-save home (`d`, then `home`) |
 | After a power cut the flap is stuck open | It rebooted thinking the flap was closed | In the console, type `d` repeatedly until the flap is down with about 2 cm of slack, then type `home` to re-set the home position |
 
@@ -438,7 +458,7 @@ Now repeat the bench wiring on the **final** QT Py, soldered this time, so it fi
 | | Amount |
 |---|---|
 | Adafruit (electronics) | $77.25 + shipping |
-| Amazon (build parts) | $69.93 |
+| Amazon (build parts) | $79.12 |
 | Amazon (starter kit) | $57.73 |
-| **Total** | **≈ $205 + shipping** |
+| **Total** | **≈ $214 + shipping** |
 | Saved by using things you already own | ≈ $95 |

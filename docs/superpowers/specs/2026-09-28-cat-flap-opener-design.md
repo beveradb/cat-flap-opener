@@ -171,10 +171,10 @@ The chosen products, ASINs and Adafruit PIDs are in the [build guide](../../guid
 | STEMMA QT cables (400 mm ×2, 200 mm ×2, to-male-header ×2) | 6 | $7.40 |
 | ELEGOO 28BYJ-48 + ULN2003 (5-pack) | 1 | $14.99 |
 | GT2 pulleys, 20T + 40T, 5 mm bore | 1 set | $11.89 |
-| 1 mm braided nylon cord, controller box (80×50×26) 5-pack, IP65 box with glands, 4-core cable, VHB tape | — | $43.05 |
+| 1 mm braided nylon cord, controller box (80×50×26) 5-pack, IP65 box with glands, 4-core cable | — | $40.25 |
 | Electronics starter kit (breadboard kit, jumpers, wire, heat-shrink, stripper, helping hands) | — | $57.73 |
 
-**Total: about $205 plus Adafruit shipping.** The build itself is about $147, and the starter kit is reusable.
+**Total: about $200 plus Adafruit shipping.** The build itself is about $144, and the starter kit is reusable.
 Power supply, USB-C cable, multimeter, soldering kit, drill bits and cable clips are already owned.
 
 ## 10. Measurements (taken 2026-09-28)

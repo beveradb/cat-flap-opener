@@ -17,6 +17,8 @@ It holds the flap open while he makes up his mind and for 20 s after he's gone, 
 - [Future: cameras](docs/future-cameras.md): notes for a later build adding live-stream and Frigate cameras on both sides
 - [Initial prompt](docs/initial-prompt.md): the original request that started the project
 
-## Status
+## Status (paused 2026-09-28)
 
-Design approved and the build guide is written. Next steps: review the guide, buy the parts, write the firmware, bench test, then install.
+- ✅ Design approved; build guide written; window measured (see guide §6)
+- ⏸️ **Next: buy the parts.** Every product in the [guide's shopping list](docs/guide/build-guide.md#4-shopping-list) links to its store page (Adafruit + Amazon, about $200 total). The VHB tape and one other Amazon item were dropped because they're already owned, so check the cart against the list.
+- ⏭️ After ordering: write the firmware (`firmware/`, PlatformIO, per the [spec](docs/superpowers/specs/2026-09-28-cat-flap-opener-design.md) §7–8) while the parts ship, then follow the guide from Step 1.

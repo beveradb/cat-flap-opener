@@ -114,44 +114,43 @@ All of these numbers are settings in one file and easy to change (see [Appendix 
 
 ## 4. Shopping list
 
-Two orders. The carts are already built in the Playwright browser, but **nothing is bought yet.**
+Two orders. **Nothing has been bought yet.** Every item name or ASIN below links to its product page, so you can rebuild the carts in a future session. As of 2026-09-28 the carts were still filled in the Playwright Chrome profile. Before buying, you removed the VHB tape and one other Amazon item you already own, so check the cart against these lists when you come back.
 
 ### Order A: Adafruit (core electronics), $77.25 + shipping
 
 | | Item | Qty | Price | Why |
 |---|---|---|---|---|
-| <img class="part" src="images/parts/qtpy-esp32s3.jpg"> | **Adafruit QT Py ESP32-S3** (8 MB flash, no PSRAM), PID 5426 | 2 | $25.00 | The brain. One is for bench testing and stays spare; the other goes in the final box. Thumb-sized, with a plug-in sensor socket. |
-| <img class="part" src="images/parts/vl53l1x.jpg"> | **VL53L1X time-of-flight distance sensor**, STEMMA QT, PID 3967 | 3 | $44.85 | The "is he on the shelf?" sensors: one inside, one outside and one spare (the outdoor one is the most likely to die). |
-| <img class="part" src="images/parts/stemma-qt-cable.jpg"> | **STEMMA QT cable, 400 mm** (PID 5385) and **200 mm** (PID 4401) | 2 + 2 | $5.50 | Plug-in, solder-free cables from the QT Py to the inside sensor. Two lengths, so you can pick whichever suits the mounting spot. |
-| <img class="part" src="images/parts/stemma-qt-male-header.jpg"> | **STEMMA QT → male header cable, 150 mm**, PID 4209 | 2 | $1.90 | Plugs into the outside sensor. Its other end is spliced onto the long 4-core cable. Also handy for breadboarding. |
+| <img class="part" src="images/parts/qtpy-esp32s3.jpg"> | **[Adafruit QT Py ESP32-S3](https://www.adafruit.com/product/5426)** (8 MB flash, no PSRAM), PID 5426 | 2 | $25.00 | The brain. One is for bench testing and stays spare; the other goes in the final box. Thumb-sized, with a plug-in sensor socket. |
+| <img class="part" src="images/parts/vl53l1x.jpg"> | **[VL53L1X time-of-flight distance sensor](https://www.adafruit.com/product/3967)**, STEMMA QT, PID 3967 | 3 | $44.85 | The "is he on the shelf?" sensors: one inside, one outside and one spare (the outdoor one is the most likely to die). |
+| <img class="part" src="images/parts/stemma-qt-cable.jpg"> | **[STEMMA QT cable, 400 mm](https://www.adafruit.com/product/5385)** (PID 5385) and **[200 mm](https://www.adafruit.com/product/4401)** (PID 4401) | 2 + 2 | $5.50 | Plug-in, solder-free cables from the QT Py to the inside sensor. Two lengths, so you can pick whichever suits the mounting spot. |
+| <img class="part" src="images/parts/stemma-qt-male-header.jpg"> | **[STEMMA QT → male header cable, 150 mm](https://www.adafruit.com/product/4209)**, PID 4209 | 2 | $1.90 | Plugs into the outside sensor. Its other end is spliced onto the long 4-core cable. Also handy for breadboarding. |
 
-### Order B: Amazon, $136.85
+### Order B: Amazon, about $125 or less
 
 **Build parts:**
 
 | | Item | ASIN | Price | Why |
 |---|---|---|---|---|
-| <img class="part" src="images/parts/stepper-uln2003.jpg"> | **ELEGOO 5× 28BYJ-48 stepper + ULN2003 driver** | B01CP18J4A | $14.99 | The motor and its driver board. You get five, so there are plenty of spares. |
-| <img class="part" src="images/parts/gt2-60t-pulley.jpg"> | **GT2 pulley, 60T, 5 mm bore**, 2-pack | B0FNDDCRM1 | $9.19 | **The main cord spool.** Your window needs about 15 cm of cord wound in, and the big 60-tooth pulley does that in about 1½ turns (6–7 s). |
-| <img class="part" src="images/parts/gt2-pulleys.jpg"> | **GT2 pulleys, 20T + 40T, 5 mm bore** (plus belts you won't need) | B09JWKLJW9 | $11.89 | Fallback spools. They're slower but pull harder, in case the 60-tooth struggles. |
-| <img class="part" src="images/parts/nylon-cord.jpg"> | **1 mm black braided nylon cord**, 100 yd | B0CNPST7D9 | $5.79 | The pull cord. It's strong and visible, and nothing like fishing line. |
-| <img class="part" src="images/parts/project-box.jpg"> | **Zulkit project boxes 80×50×26 mm**, 5-pack | B07Q14K8YT | $7.29 | The controller box, with spares for mistakes. |
-| <img class="part" src="images/parts/ip65-box.jpg"> | **IP65 box 68×58×33 mm, clear lid** (includes 2 cable glands) | B0CT5H9KPC | $4.99 | Weatherproof housing for the outside sensor |
-| <img class="part" src="images/parts/4core-cable.jpg"> | **22 AWG 4-conductor cable**, 25 ft | B0CFJXMDT3 | $12.99 | Connects the outside sensor to the controller (about 1 m used) |
-| <img class="part" src="images/parts/vhb-tape.jpg"> | **3M VHB double-sided tape**, black | B0CHDVNS5T | $11.99 | Sticks the sensors and boxes to the frame neatly, with no screws in the acrylic |
+| <img class="part" src="images/parts/stepper-uln2003.jpg"> | **ELEGOO 5× 28BYJ-48 stepper + ULN2003 driver** | [B01CP18J4A](https://www.amazon.com/dp/B01CP18J4A) | $14.99 | The motor and its driver board. You get five, so there are plenty of spares. |
+| <img class="part" src="images/parts/gt2-60t-pulley.jpg"> | **GT2 pulley, 60T, 5 mm bore**, 2-pack | [B0FNDDCRM1](https://www.amazon.com/dp/B0FNDDCRM1) | $9.19 | **The main cord spool.** Your window needs about 15 cm of cord wound in, and the big 60-tooth pulley does that in about 1½ turns (6–7 s). |
+| <img class="part" src="images/parts/gt2-pulleys.jpg"> | **GT2 pulleys, 20T + 40T, 5 mm bore** (plus belts you won't need) | [B09JWKLJW9](https://www.amazon.com/dp/B09JWKLJW9) | $11.89 | Fallback spools. They're slower but pull harder, in case the 60-tooth struggles. |
+| <img class="part" src="images/parts/nylon-cord.jpg"> | **1 mm black braided nylon cord**, 100 yd | [B0CNPST7D9](https://www.amazon.com/dp/B0CNPST7D9) | $5.79 | The pull cord. It's strong and visible, and nothing like fishing line. |
+| <img class="part" src="images/parts/project-box.jpg"> | **Zulkit project boxes 80×50×26 mm**, 5-pack | [B07Q14K8YT](https://www.amazon.com/dp/B07Q14K8YT) | $7.29 | The controller box, with spares for mistakes. |
+| <img class="part" src="images/parts/ip65-box.jpg"> | **IP65 box 68×58×33 mm, clear lid** (includes 2 cable glands) | [B0CT5H9KPC](https://www.amazon.com/dp/B0CT5H9KPC) | $4.99 | Weatherproof housing for the outside sensor |
+| <img class="part" src="images/parts/4core-cable.jpg"> | **22 AWG 4-conductor cable**, 25 ft | [B0CFJXMDT3](https://www.amazon.com/dp/B0CFJXMDT3) | $12.99 | Connects the outside sensor to the controller (about 1 m used) |
 
 **Electronics starter kit** (for this build and future ones):
 
 | | Item | ASIN | Price | Why |
 |---|---|---|---|---|
-| <img class="part" src="images/parts/elegoo-fun-kit.jpg"> | **ELEGOO Electronics Fun Kit**: breadboard, buttons, LEDs, resistors, header pins… | B01ERP6WL4 | $9.99 | Breadboard for the bench prototype, plus the push button for the box |
-| <img class="part" src="images/parts/dupont-wires.jpg"> | **ELEGOO 120 Dupont jumper wires** (M-M, M-F, F-F) | B01EV70C78 | $6.98 | Breadboard wiring |
-| <img class="part" src="images/parts/hookup-wire.jpg"> | **Fermerry 22 AWG stranded wire**, 6 colours × 10 ft | B089CQHRDT | $12.79 | Neat wires inside the final box |
-| <img class="part" src="images/parts/heat-shrink.jpg"> | **Ginsco heat-shrink tubing kit** | B01MFA3OFA | $7.99 | Insulates the splices (shrink with the side of the soldering iron or a lighter) |
-| <img class="part" src="images/parts/wire-stripper.jpg"> | **VCELINK automatic wire stripper** | B08G48R47N | $9.99 | Clean strips on 22 AWG wire |
-| <img class="part" src="images/parts/helping-hands.jpg"> | **NEIKO helping hands** with magnifier | B000P42O3C | $9.99 | Holds wires while you solder splices |
+| <img class="part" src="images/parts/elegoo-fun-kit.jpg"> | **ELEGOO Electronics Fun Kit**: breadboard, buttons, LEDs, resistors, header pins… | [B01ERP6WL4](https://www.amazon.com/dp/B01ERP6WL4) | $9.99 | Breadboard for the bench prototype, plus the push button for the box |
+| <img class="part" src="images/parts/dupont-wires.jpg"> | **ELEGOO 120 Dupont jumper wires** (M-M, M-F, F-F) | [B01EV70C78](https://www.amazon.com/dp/B01EV70C78) | $6.98 | Breadboard wiring |
+| <img class="part" src="images/parts/hookup-wire.jpg"> | **Fermerry 22 AWG stranded wire**, 6 colours × 10 ft | [B089CQHRDT](https://www.amazon.com/dp/B089CQHRDT) | $12.79 | Neat wires inside the final box |
+| <img class="part" src="images/parts/heat-shrink.jpg"> | **Ginsco heat-shrink tubing kit** | [B01MFA3OFA](https://www.amazon.com/dp/B01MFA3OFA) | $7.99 | Insulates the splices (shrink with the side of the soldering iron or a lighter) |
+| <img class="part" src="images/parts/wire-stripper.jpg"> | **VCELINK automatic wire stripper** | [B08G48R47N](https://www.amazon.com/dp/B08G48R47N) | $9.99 | Clean strips on 22 AWG wire |
+| <img class="part" src="images/parts/helping-hands.jpg"> | **NEIKO helping hands** with magnifier | [B000P42O3C](https://www.amazon.com/dp/B000P42O3C) | $9.99 | Holds wires while you solder splices |
 
-**Total: about $214 + Adafruit shipping.** About $156 of that is the build itself; the rest is the reusable starter kit.
+**Total: about $200 + Adafruit shipping.** About $144 of that is the build itself; the rest is the reusable starter kit.
 
 
 
@@ -169,12 +168,13 @@ Found in your Amazon order history. **None of this is being bought again.**
 | Drill + ENERTWIST / DEWALT bit sets | Box holes, the acrylic cable hole and a tiny hole in the flap |
 | Jewelry pliers set (with wire cutters) | Snipping wires and header pins |
 | Loctite super glue gel, Gorilla clear adhesive, hot glue gun | Securing knots and the button, sealing the cable hole |
-| Bates nail-in cable clips (white), Velcro, gaffer tape | Routing the USB cable down the wall |
+| Bates nail-in cable clips (white), gaffer tape | Routing the USB cable down the wall |
+| VELCRO heavy-duty strips, hook-and-loop tape, other mounting tapes | Mounting the sensors and boxes (replaces the VHB tape that was in the cart). Velcro also makes parts easy to remove. |
 | Sabrent 10-port USB charger / Apple 40 W / spare USB plugs | 5 V power (any 1 A+ USB port is enough) |
 | Anker USB-C to USB-C cables, 6 ft | Power cable (measure the run first; see §6) |
 | CeSunlight clamp lamp | Light for the workbench |
 
-**You may also need** a couple of small wood screws (#4–#6, ½") to fix the motor's mounting tabs to the frame. VHB tape works if you'd rather not drill.
+**You may also need** a couple of small wood screws (#4–#6, ½") to fix the motor's mounting tabs to the frame. Heavy-duty Velcro works if you'd rather not drill.
 
 <div class="page-break"></div>
 
@@ -212,7 +212,7 @@ You took these on 2026-09-28. Photos are in `docs/guide/photos/`.
 
 - [ ] **Cord clearance.** The cord must hang **at least 3 cm in front of the SureFlap housing's front face**, so it never rubs on the housing's top lip as it winds. If the sash rail's face is roughly level with the housing front, put the motor on a small wood spacer block (a 1×2 offcut) to bring it forward.
 - [ ] **The sash.** The motor is on the lower sash, so **unhook the cord before ever raising or lowering that sash.**
-- [ ] **The paint** on the rail is peeling in places, so use **screws for the motor** (VHB on flaking paint isn't reliable). VHB is fine for the light sensor and box if you scrape to sound paint first.
+- [ ] **The paint** on the rail is peeling in places, so use **screws for the motor** (adhesives don't hold on flaking paint). Heavy-duty Velcro is fine for the light sensor and box if you scrape to sound paint first.
 
 <img class="diagram" src="diagrams/mechanism.svg" alt="Mechanism geometry">
 
@@ -310,7 +310,7 @@ This is the wiring for **both** the bench prototype and the final box. On the be
 
 - [ ] On the IP65 box's **clear lid**, mark a spot about 1 cm from one edge. Drill a small pilot hole, then open it up to **~10 mm** (step up through the bit sizes). Go slow; the plastic cracks if you rush.
 - [ ] Fit one of the box's supplied **cable glands** in a side wall, near the top when the box is mounted (drill to the gland's thread size).
-- [ ] Stick the VL53L1X to the **inside of the lid** with a small square of VHB. Put the sensor's black window **centred over the hole** and the STEMMA socket facing the gland.
+- [ ] Stick the VL53L1X to the **inside of the lid** with a small dab of hot glue or a square of mounting tape. Put the sensor's black window **centred over the hole** and the STEMMA socket facing the gland.
 - [ ] Plug the **STEMMA QT → male-header** cable into the sensor and feed its header end out through the gland. It's spliced to the long cable in Step 7.
 
 ### Step 7: Route and build the outside cable (45 min)
@@ -328,7 +328,7 @@ This is the wiring for **both** the bench prototype and the final box. On the be
 | yellow | SCL (clock) | green → ________ |
 
 - [ ] Twist each pair together, solder it, slide the heat-shrink over the joint and shrink it. Then put one larger piece of heat-shrink over all four joints.
-- [ ] Tighten the gland nut and screw the lid on. Mount the box on the **outside face of the frame** with VHB, **clear lid facing down**, so the sensor looks down at the catio shelf. Leave a **drip loop** (a U-bend below the gland) in the cable.
+- [ ] Tighten the gland nut and screw the lid on. Mount the box on the **outside face of the acrylic** with heavy-duty Velcro, **clear lid facing down**, so the sensor looks down at the catio shelf. Leave a **drip loop** (a U-bend below the gland) in the cable.
 
 <div class="check">
 
@@ -357,16 +357,16 @@ Now repeat the bench wiring on the **final** QT Py, soldered this time, so it fi
   - a USB-C slot in the right end, lined up with the QT Py's port
   - a slot at the left end for the motor cable (feed the motor's plug through from outside, then plug it into the ULN2003)
   - two 7 mm holes in the bottom edge, for the inside sensor's STEMMA cable and the outside 4-core cable
-- [ ] Stick both boards to the box floor with small VHB squares, with the QT Py's USB port lined up to its slot.
+- [ ] Stick both boards to the box floor with small squares of mounting tape (or hot glue), with the QT Py's USB port lined up to its slot.
 - [ ] Put a **knot or a zip tie** on the 4-core and motor cables just inside the box, so a tug can't pull on the solder joints.
 - [ ] Plug in USB and run the **Step 3 bench checklist again** before closing the lid.
 
 ### Step 9: Mount on the window (45 min)
 
 - [ ] **Motor:** mount it on the face of the **lower sash's bottom rail**, directly above the flap, with the cord hanging **at least 3 cm in front of the flap housing** (use a wood spacer block if needed; see §6). Fix the two mounting tabs with small wood screws, with the **shaft pointing into the room**, so the pulley turns in a plane parallel to the window and the cord drops straight down from it.
-- [ ] **Inside sensor:** stick it with VHB to the sash rail **about 15 cm left of the flap**, angled so it looks at the part of the shelf where he sits in front of the flap. **It must not see the flap or cord** as the flap swings up (see Step 11's check). Plug in its STEMMA cable.
-- [ ] **Controller box:** VHB it to the frame beside the motor.
-- [ ] **Outside box:** VHB it to the **outside face of the acrylic, beside the flap** (on the same side as the cable hole), lid facing down and aimed at the catio shelf just in front of the flap.
+- [ ] **Inside sensor:** stick it with heavy-duty Velcro to the sash rail **about 15 cm left of the flap**, angled so it looks at the part of the shelf where he sits in front of the flap. **It must not see the flap or cord** as the flap swings up (see Step 11's check). Plug in its STEMMA cable.
+- [ ] **Controller box:** Velcro it to the rail beside the motor.
+- [ ] **Outside box:** Velcro it to the **outside face of the acrylic, beside the flap** (on the same side as the cable hole), lid facing down and aimed at the catio shelf just in front of the flap.
 - [ ] **USB cable:** route it along the rail and down the window trim with the Bates clips, to a USB plug in the outlet just right of the window.
 
 ### Step 10: Connect the cord (10 min)
@@ -458,7 +458,7 @@ Now repeat the bench wiring on the **final** QT Py, soldered this time, so it fi
 | | Amount |
 |---|---|
 | Adafruit (electronics) | $77.25 + shipping |
-| Amazon (build parts) | $79.12 |
+| Amazon (build parts) | $67.13 |
 | Amazon (starter kit) | $57.73 |
-| **Total** | **≈ $214 + shipping** |
+| **Total** | **≈ $200 + shipping** (before the second item you removed) |
 | Saved by using things you already own | ≈ $95 |
